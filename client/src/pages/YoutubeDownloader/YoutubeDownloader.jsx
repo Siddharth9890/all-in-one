@@ -39,7 +39,7 @@ export default function YoutubeDownloader() {
         "https://www.youtube.com/watch?v=".length
       );
       const response = await simplePostCall(
-        `http://localhost:5000/api/youtube-downloader/validate-link/${id}`,
+        `https://all-in-one-youtube-downloader.herokuapp.com/api/youtube-downloader/validate-link/${id}`,
         userData
       );
       if (response.data === false) {
@@ -58,13 +58,13 @@ export default function YoutubeDownloader() {
   const downloadVideo = async () => {
     setDisableDownloadButton(true);
     await simplePostCall(
-      `http://localhost:5000/api/youtube-downloader/download-video/${youtubeLink.substring(
+      `https://all-in-one-youtube-downloader.herokuapp.com/api/youtube-downloader/download-video/${youtubeLink.substring(
         "https://www.youtube.com/watch?v=".length
       )}/1`,
       userData
     );
     new JsFileDownloader({
-      url: `http://localhost:5000/api/youtube-downloader/download-video/${youtubeLink.substring(
+      url: `https://all-in-one-youtube-downloader.herokuapp.com/api/youtube-downloader/download-video/${youtubeLink.substring(
         "https://www.youtube.com/watch?v=".length
       )}/${valueSelected}`,
       method: "POST",

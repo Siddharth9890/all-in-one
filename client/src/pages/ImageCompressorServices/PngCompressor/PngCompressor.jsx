@@ -44,13 +44,13 @@ export default function JpgCompressor() {
     // }
     try {
       const response = await simplePostCall(
-        `http://localhost:5000/api/images/png-compressor/${quality}`,
+        `https://all-in-one-images-server.herokuapp.com/api/images/png-compressor/${quality}`,
         Picture
       );
       if (response.status === 200) {
         const data = response.data;
         await simplePostCall(
-          "http://localhost:5000/api/images/png-compressor/",
+          "https://all-in-one-images-server.herokuapp.com/api/images/png-compressor/",
           {
             userData,
             data,

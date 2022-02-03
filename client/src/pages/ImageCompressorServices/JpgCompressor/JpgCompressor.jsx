@@ -43,7 +43,7 @@ export default function JpgCompressor() {
     // }
     try {
       const response = await simplePostCall(
-        `http://localhost:5000/api/images/jpg-compressor/${quality}`,
+        `https://all-in-one-images-server.herokuapp.com/api/images/jpg-compressor/${quality}`,
         Picture
       );
       if (response.status === 200) {
@@ -51,7 +51,7 @@ export default function JpgCompressor() {
         console.log(data.data.secure_url);
 
         await simplePostCall(
-          "http://localhost:5000/api/images/jpg-compressor/",
+          "https://all-in-one-images-server.herokuapp.com/api/images/jpg-compressor/",
           {
             userData,
             data,

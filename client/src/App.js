@@ -50,7 +50,7 @@ const App = () => {
     const userData = parse.getUA();
     data = { ...data, userData };
     visitedContext(data);
-    await simplePostCall("http://localhost:5000/api/visited-data", data);
+    await simplePostCall("https://all-in-one-main-server.herokuapp.com/api/visited-data", data);
   };
 
   useEffect(() => {
