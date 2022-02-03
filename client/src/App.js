@@ -16,28 +16,19 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { UserContext } from "./Context/userContext";
 import OvalLoader from "./utils/Loader";
 
-const Home = loadable(() => import("./pages/Home/Home"));
-const FAQ = loadable(() => import("./pages/FAQ/FAQ"));
+import Home from "./pages/Home/Home";
+import FAQ from "./pages/FAQ/FAQ";
 
-const Page404 = loadable(() => import("./pages/404/Page404.jsx"));
+import Page404 from "./pages/404/Page404.jsx";
 
-const ImageCompressor = loadable(() =>
-  import("./pages/ImageCompressorServices/ImageCompressor")
-);
+import ImageCompressor from "./pages/ImageCompressorServices/ImageCompressor";
 
-const JpgCompressor = loadable(() =>
-  import("./pages/ImageCompressorServices/JpgCompressor/JpgCompressor")
-);
-const PngCompressor = loadable(() =>
-  import("./pages/ImageCompressorServices/PngCompressor/PngCompressor")
-);
+import JpgCompressor from "./pages/ImageCompressorServices/JpgCompressor/JpgCompressor";
+import PngCompressor from "./pages/ImageCompressorServices/PngCompressor/PngCompressor";
 
-const AdvanceCalculator = loadable(() =>
-  import("./pages/AdvanceCalculator/AdvanceCalculator")
-);
-const YoutubeDownloader = loadable(() =>
-  import("./pages/YoutubeDownloader/YoutubeDownloader")
-);
+import AdvanceCalculator from "./pages/AdvanceCalculator/AdvanceCalculator";
+import YoutubeDownloader from "./pages/YoutubeDownloader/YoutubeDownloader";
+
 const AboutUs = loadable(() => import("./pages/AboutUs/AboutUs"));
 const FeaturesComing = loadable(() => import("./pages/FeaturesComing"));
 
@@ -50,7 +41,10 @@ const App = () => {
     const userData = parse.getUA();
     data = { ...data, userData };
     visitedContext(data);
-    await simplePostCall("https://all-in-one-main-server.herokuapp.com/api/visited-data", data);
+    await simplePostCall(
+      "https://all-in-one-main-server.herokuapp.com/api/visited-data",
+      data
+    );
   };
 
   useEffect(() => {
